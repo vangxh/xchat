@@ -1,0 +1,280 @@
+/* vue */
+[v-cloak] {
+    display: none;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+/* 聊天面板 */
+.xchat {
+    width: 100%;
+    height: 100%;
+    min-height: 160px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+.xchat .xchat-main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.xchat .xchat-main .xchat-body {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    flex-grow: 1;
+    background-color: #ecedf1;
+    border-left: 1px #d5d5d5 solid;
+    border-right: 1px #d5d5d5 solid;
+    padding-bottom: 20px;
+    position: relative;
+}
+.xchat .xchat-main .xchat-body::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+}
+.xchat .xchat-main .xchat-body::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    visibility: hidden;
+}
+.xchat .xchat-main .xchat-body:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+.xchat .xchat-main .xchat-body::-webkit-scrollbar-thumb:hover {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+}
+.xchat .xchat-main .xchat-body .xchat-more {
+    text-align: center;
+    padding: 16px 0 16px 3px;
+    color: #12b7f5;
+}
+.xchat .xchat-main .xchat-body .xchat-more img {
+    width: 20px;
+    height: 20px;
+}
+.xchat .xchat-main .xchat-body .notice {
+    text-align: center;
+    padding: 4px 0;
+    color: #999;
+}
+.xchat .xchat-main .xchat-body .line {
+    width: 100%;
+    margin-top: 8px;
+    padding: 0 4px 10px 10px;
+}
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2) {
+    .xchat .xchat-main .xchat-body .line {
+        padding-right: 10px;
+    }
+}
+@media (device-height:667px) and (-webkit-min-device-pixel-ratio:2) {
+    .xchat .xchat-main .xchat-body .line {
+        padding-right: 10px;
+    }
+}
+@media (device-height:736px) and (-webkit-min-device-pixel-ratio:2) {
+    .xchat .xchat-main .xchat-body .line {
+        padding-right: 10px;
+    }
+}
+@media only screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) {
+    .xchat .xchat-main .xchat-body .line {
+        padding-right: 10px;
+    }
+}
+.xchat .xchat-main .xchat-body .line.left, .xchat .xchat-main .xchat-body .line.left a {
+    color: #333333;
+}
+.xchat .xchat-main .xchat-body .line.right, .xchat .xchat-main .xchat-body .line.right a {
+    color: #fff;
+}
+.xchat .xchat-main .xchat-body .line .split {
+    text-align: center;
+    position: relative;
+    margin: 8px 36px;
+}
+.xchat .xchat-main .xchat-body .line .split hr {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 12px 0;
+}
+.xchat .xchat-main .xchat-body .line .split span {
+    display: inline-block;
+    padding: 4px 16px;
+    background-color: #ecedf1;
+    position: relative;
+    color: #999;
+}
+.xchat .xchat-main .xchat-body .line .time {
+    text-align: center;
+    color: #999;
+}
+.xchat .xchat-main .xchat-body .line .user {
+    display: flex;
+}
+.xchat .xchat-main .xchat-body .line .user .space {
+    width: 52px;
+    flex-shrink: 0;
+}
+.xchat .xchat-main .xchat-body .line .user .face {
+    text-align: center;
+    width: 36px;
+    flex-shrink: 0;
+}
+.xchat .xchat-main .xchat-body .line .user .face img {
+    clear: both;
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+}
+.xchat .xchat-main .xchat-body .line .user .msg {
+    flex-grow: 1;
+    word-break: break-all;
+}
+.xchat .xchat-main .xchat-body .line.right .user .msg {
+    text-align: right;
+}
+.xchat .xchat-main .xchat-body .line.left .user .msg .name {
+    color: #999;
+    padding-left: 16px;
+}
+.xchat .xchat-main .xchat-body .line.right .user .msg .name {
+    color: #999;
+    padding-right: 16px;
+}
+.xchat .xchat-main .xchat-body .line .user .msg .say {
+    position: relative;
+    padding: 6px 10px;
+    border-radius: 5px;
+    line-height: 1.8;
+    margin-top: 2px;
+    display: inline-block;
+    text-align: left;
+}
+.xchat .xchat-main .xchat-body .line .user .msg .say img {
+    display: block;
+    cursor: crosshair;
+    margin: 4px 0;
+}
+.xchat .xchat-main .xchat-body .line .user .msg .say img.emoj {
+    display: inline-block;
+    cursor: default;
+    margin: 0;
+}
+.xchat .xchat-main .xchat-body .line .user .msg .say ol a {
+    color: #00a0d8;
+}
+.xchat .xchat-main .xchat-body .line .user .msg .say a.download {
+    display: block;
+    text-align: center;
+    min-width: 48px;
+    min-height: 76px;
+    padding-top: 56px;
+    position: relative;
+}
+.xchat .xchat-main .xchat-body .line .user .msg .say a.download::after {
+    content: " ";
+    background: url(../img/download.png) center top no-repeat;
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+.xchat .xchat-main .xchat-body .line .user .msg .say a.download:hover::after {
+    opacity: 1;
+}
+.xchat .xchat-main .xchat-body .line.left .user .msg .say {
+    background-color: #ffffff;
+    margin-left: 16px;
+}
+.xchat .xchat-main .xchat-body .line.right .user .msg .say {
+    background-color:#008000;
+    margin-right: 16px;
+}
+.xchat .xchat-main .xchat-body .line.right .user .msg i {
+    background-color: #f00;
+    color: #fff;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 16px;
+    font-style: normal;
+    margin-right: 2px;
+    margin-left: -20px;
+}
+.xchat .xchat-main .xchat-body .line .user .msg .say:before {
+    position: absolute;
+    top: 10px;
+    width: 0;
+    height: 0;
+    content: "\00a0";
+    border-style: solid;
+}
+.xchat .xchat-main .xchat-body .line.left .user .msg .say:before {
+    left: -12px;
+    border-width: 2px 12px 6px 0;
+    border-color: transparent #ffffff transparent transparent;
+}
+.xchat .xchat-main .xchat-body .line.right .user .msg .say:before {
+    right: -12px;
+    border-width: 2px 0 6px 12px;
+    border-color: transparent transparent transparent #008000;
+}
+
+.xchat .xchat-notice {
+    position: absolute;
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+    color: #999;
+    left: 1px;
+    right: 1px;
+    bottom: 92px;
+    background-color: #fff2cd;
+    z-index: 9999;
+    overflow: hidden;
+}
+.xchat .xchat-notice a {
+    float: right;
+    text-decoration: none;
+    padding: 0 6px;
+}
+.xchat .xchat-notice .animate-leave-to {
+    transition: all .7s;
+    transform: translateY(20px);
+}
+
+.xchat .xchat-foot .xchat-editor-tool .xchat-face {
+    width: 290px;
+    top: -272px;
+    left: 8px;
+}
+
+.xchat .xchat-foot .xchat-editor-main {
+    display: flex;
+}
+.xchat .xchat-foot .xchat-editor-main .content {
+    border-right: none;
+    flex-grow: 1;
+}
+
+.xchat .xchat-foot .xchat-editor-main .btn {
+    width: 60px;
+    background-color: #00a0d8;
+    color: #fff;
+    flex-shrink: 0;
+}

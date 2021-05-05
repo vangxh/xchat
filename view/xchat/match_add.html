@@ -1,0 +1,28 @@
+<form action="{:request()->url()}" method="post">
+    <table class="layui-table" lay-skin="nob">
+        <colgroup>
+            <col width="80">
+            <col width="240">
+        </colgroup>
+        <tbody>
+            <tr>
+                <td>关键词</td>
+                <td><input type="text" name="name" /></td>
+            </tr>
+            <tr>
+                <td>内容</td>
+                <td><textarea name="content"></textarea></td>
+            </tr>
+            <tr>
+                <td>排序</td>
+                <td><input type="text" name="sort" /></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td><div class="foot"><span class="tip"></span><button type="submit" class="btn">提交</button></div></td>
+            </tr>
+        </tfoot>
+    </table>
+</form>

@@ -1,0 +1,192 @@
+.xchat-editor {
+    position: relative;
+}
+.xchat-editor .xchat-editor-tool {
+    height: 31px;
+    line-height: 30px;
+    padding: 1px 8px 0;
+    border: 1px #d5d5d5 solid;
+    border-bottom: none;
+    position: relative;
+}
+.xchat-editor .xchat-editor-tool span {
+    width: 24px;
+    height: 26px;
+    display: inline-block;
+    margin-right: 8px;
+    cursor: pointer;
+    position: relative;
+}
+.xchat-editor .xchat-editor-tool span:hover {
+    opacity: 1;
+}
+.xchat-editor .xchat-editor-tool span input {
+    position: absolute;
+    font-size: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .01;
+    filter: Alpha(opacity=1);
+    cursor: pointer;
+    border: none;
+}
+.xchat-editor .xchat-editor-tool .face {
+    background: url(../img/icon.png) center 0 / 28px auto  no-repeat;
+    opacity: 0.6;
+}
+.xchat-editor .xchat-editor-tool .image {
+    background: url(../img/icon.png) center -24px / 25px auto no-repeat;
+    opacity: 0.68;
+}
+.xchat-editor .xchat-editor-tool .file {
+    background: url(../img/icon.png) center -50px / 26px auto no-repeat;
+    opacity: 0.6;
+}
+.xchat .xchat-center .xchat-box .xchat-foot .xchat-editor-tool .history {
+    background: url(../img/icon.png) 0px -74px / 26px auto no-repeat;
+    opacity: 0.7;
+    width: 80px;
+    padding-left: 28px;
+    position: absolute;
+    margin-right: 5px;
+    line-height: 26px;
+    right: 0;
+}
+.xchat-editor .xchat-editor-tool .xchat-face {
+    position: absolute;
+    max-width: 380px;
+    background-color: #fff;
+    padding: 5px 4px 4px 5px;
+    z-index: 9999999;
+}
+.xchat-editor .xchat-editor-tool .xchat-face a {
+    border: 1px solid #e8e8e8;
+    height: 32px;
+    width: 32px;
+    line-height: 24px;
+    margin: -1px 0 0 -1px;
+    padding: 2px;
+    text-align: center;
+    display: inline-block;
+}
+.xchat-editor .xchat-editor-tool .xchat-face a:hover {
+    border: 1px solid #eb7350;
+    background: #fff9ec;
+    position: relative;
+    z-index: 2;
+}
+.xchat-editor .xchat-editor-main .content {
+    height: 61px;
+    padding: 6px;
+    border-right: none;
+    word-break: break-all;
+    overflow-y: auto;
+    border: 1px #d5d5d5 solid;
+}
+.xchat-editor .xchat-editor-main .content:focus {
+    outline: none;
+}
+.xchat-editor .xchat-editor-main .content::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+}
+.xchat-editor .xchat-editor-main .content::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    visibility: hidden;
+}
+.xchat-editor .xchat-editor-main .content:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+.xchat-editor .xchat-editor-main .content::-webkit-scrollbar-thumb:hover {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+}
+.xchat-editor .xchat-editor-foot {
+    margin-top: 10px;
+    text-align: right;
+}
+.xchat-editor .filter {
+    display: none;
+}
+
+/* xchat弹层 */
+.xchat-pop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
+    box-sizing: content-box;
+    border-radius: 2px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,.2);
+    display: flex;
+    flex-direction: column;
+}
+.xchat-pop .xchat-pop-disable {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: none;
+}
+.xchat-pop .xchat-pop-head {
+    height: 28px;
+    line-height: 28px;
+    padding: 0 8px;
+    background-color: #ededed;
+    border-bottom: 1px #eee solid;
+    color: #777;
+    cursor: move;
+}
+.xchat-pop .xchat-pop-head span {
+    cursor: default;
+}
+.xchat-pop .xchat-pop-head a {
+    float: right;
+    font-weight: 300;
+}
+.xchat-pop .xchat-pop-body {
+    padding: 12px 20px;
+    background-color: #fff;
+    flex-grow: 1;
+}
+.xchat-pop .xchat-pop-foot {
+    text-align: right;
+    padding: 0 20px 20px 20px;
+    background-color: #fafafa;
+}
+.xchat-pop .xchat-pop-foot .btn {
+    margin-left: 10px;
+}
+/* 遮罩 */
+.xchat-pop-shadow {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.3;
+}
+/*提示*/
+.xchat-pop-tip .xchat-pop-body {
+    border-radius: 2px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,.2);
+    background-color: #000;
+    color: #fff;
+    padding: 4px 8px;
+    pointer-events: auto;
+}
+/* iframe */
+.xchat-pop-iframe .xchat-pop-body {
+    padding: 0;
+    background: url(../img/loading.gif) center center no-repeat #fff;
+}

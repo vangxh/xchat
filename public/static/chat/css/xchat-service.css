@@ -1,0 +1,763 @@
+/* vue */
+[v-cloak] {
+    display: none;
+}
+.btn {
+    padding: 4px 8px;
+    background-color: #00a0d8;
+    color: #fff;
+}
+.btn.cancel, .btn[disabled] {
+    background-color: #ddd;
+    color: #777;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+/* 聊天面板 */
+.xchat {
+    width: 100%;
+    height: 100%;
+    min-height: 160px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    font-size: 12px;
+}
+.xchat .xchat-left {
+    width: 200px;
+    border-left: 1px #d5d5d5 solid;
+    border-bottom: 1px #d5d5d5 solid;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+.xchat .xchat-left .tab {
+    text-align: center;
+    background-color: #f6f6f6;
+    position: relative;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+.xchat .xchat-left .tab a {
+    text-decoration: none;
+    display: inline-block;
+    height: 36px;
+    line-height: 34px;
+    width: 50%;;
+    border-bottom: 3px transparent solid;
+}
+.xchat .xchat-left .tab a.on {
+    border-color: #64e29c;
+}
+.xchat .xchat-left .content {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+.xchat .xchat-left .content::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+}
+.xchat .xchat-left .content ol dd {
+    padding: 0 8px;
+    display: flex;
+    height: 48px;
+    overflow: hidden;
+    align-items: center;
+}
+.xchat .xchat-left .content ol dt {
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #aaa;
+}
+.xchat .xchat-left .content ol dd.on {
+    background-color: #efefef;
+}
+.xchat .xchat-left .content ol dd:hover {
+    background-color: #f0f0f0;
+}
+.xchat .xchat-left .content ol dd .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.xchat .xchat-left .content ol dd .avatar.offline {
+    -webkit-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+}
+.xchat .xchat-left .content ol dd .user {
+    color: #999;
+    padding-top: 1px;
+    padding-left: 8px;
+    flex-grow: 1;
+    position: relative;
+}
+.xchat .xchat-left .content ol dd .user .name {
+    color: #999;
+}
+.xchat .xchat-left .content ol dd .user .time {
+    float: right;
+    color: #aaa;
+}
+.xchat .xchat-left .content ol dd .user .say {
+    color: #aaa;
+    padding-right: 20px;
+    height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.xchat .xchat-left .content ol dd .user  i {
+    position: absolute;
+    padding: 0 2px;
+    height: 16px;
+    min-width: 16px;
+    line-height: 16px;
+    border-radius: 8px;
+    background-color: #ff5722;
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+    top: 20px;
+    right: 0;
+    font-style: normal;
+}
+.xchat .xchat-left .content ol dd .user  i.del {
+    display: none;
+    cursor: pointer;
+    background-color: #504f4f;
+    font-weight: lighter;
+    line-height: 14px;
+}
+.xchat .xchat-left .content ol dd:hover .user .del {
+    display: inherit;
+    z-index: 999;
+}
+.xchat .xchat-left .content ol dd:hover .user .del:hover {
+    background-color: #f00;
+}
+.xchat .xchat-left .foot {
+    height: 111px;
+    flex-shrink: 0;
+}
+.xchat .xchat-left .foot .page {
+    height: 32px;
+    border-top: 1px #d5d5d5 solid;
+    border-bottom: 1px #d5d5d5 solid;
+    background-color: #f6f6f6;
+    padding-top: 6px;
+    padding-left: 4px;
+}
+.xchat .xchat-left .foot .page .xchat-page {
+    position: relative;
+}
+.xchat .xchat-left .foot .page a {
+    margin: 0 3px;
+}
+.xchat .xchat-left .foot .page .sum {
+    position: absolute;
+    right: 6px;
+    top: 0;
+}
+.xchat .xchat-left .foot .set {
+    padding: 4px;
+}
+.xchat .xchat-left .foot .set a {
+    margin: 0 4px;
+}
+
+.xchat .xchat-center {
+    flex-grow: 1;
+    position: relative;
+    min-width: 320px;
+}
+.xchat .xchat-center .xchat-box {
+    width: 100%;
+    height: 100%;
+    min-height: 160px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+.xchat .xchat-center .xchat-box .xchat-top {
+    text-align: center;
+    background-color: #f6f6f6;
+    position: relative;
+    height: 36px;
+    padding-top: 7px;
+    border-left: 1px #d5d5d5 solid;
+    border-right: 1px #d5d5d5 solid;
+    border-bottom: 1px #d5d5d5 solid;
+}
+.xchat .xchat-center .xchat-box .xchat-top a {
+    display: inline-block;
+    padding: 0 8px;
+    border: 1px #d5d5d5 solid;
+    border-radius: 3px;
+    margin: 0 8px;
+    text-decoration: none;
+}
+.xchat .xchat-center .xchat-box .xchat-top a:hover {
+    border-color: #f16e50;
+}
+.xchat .xchat-center .xchat-box .xchat-body {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    flex-grow: 1;
+    background-color: #ecedf1;
+    padding-bottom: 20px;
+    position: relative;
+    border-left: 1px #d5d5d5 solid;
+    border-right: 1px #d5d5d5 solid;
+}
+.xchat .xchat-center .xchat-box .xchat-body::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+}
+.xchat .xchat-center .xchat-box .xchat-body::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    visibility: hidden;
+}
+.xchat .xchat-center .xchat-box .xchat-body:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+.xchat .xchat-center .xchat-box .xchat-body::-webkit-scrollbar-thumb:hover {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+}
+.xchat .xchat-center .xchat-box .xchat-body .xchat-more {
+    text-align: center;
+    padding: 16px 0;
+    color: #12b7f5;
+}
+.xchat .xchat-center .xchat-box .xchat-body .xchat-more img {
+    width: 20px;
+    height: 20px;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line {
+    width: 100%;
+    padding: 8px 4px 8px 10px;
+}
+@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2) {
+    .xchat .xchat-center .xchat-box .xchat-body .line {
+        padding-right: 10px;
+    }
+}
+@media (device-height:667px) and (-webkit-min-device-pixel-ratio:2) {
+    .xchat .xchat-center .xchat-box .xchat-body .line {
+        padding-right: 10px;
+    }
+}
+@media (device-height:736px) and (-webkit-min-device-pixel-ratio:2) {
+    .xchat .xchat-center .xchat-box .xchat-body .line {
+        padding-right: 10px;
+    }
+}
+@media only screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) {
+    .xchat .xchat-center .xchat-box .xchat-body .line {
+        padding-right: 10px;
+    }
+}
+.xchat .xchat-center .xchat-box .xchat-body .line.left, .xchat .xchat-center .xchat-box .xchat-body .line.left a {
+    color: #333333;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line.right, .xchat .xchat-center .xchat-box .xchat-body .line.right a {
+    color: #fff;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .split {
+    text-align: center;
+    position: relative;
+    margin: 8px 36px;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .split hr {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 12px 0;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .split span {
+    display: inline-block;
+    padding: 4px 16px;
+    background-color: #ecedf1;
+    position: relative;
+    color: #999;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .time {
+    text-align: center;
+    color: #999;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .user {
+    display: flex;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .user .space {
+    width: 52px;
+    flex-shrink: 0;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .user .face {
+    text-align: center;
+    width: 36px;
+    flex-shrink: 0;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .user .face img {
+    clear: both;
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .user .msg {
+    flex-grow: 1;
+    word-break: break-all;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line.right .user .msg {
+    text-align: right;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line.left .user .msg .name {
+    color: #999;
+    padding-left: 16px;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line.right .user .msg .name {
+    color: #999;
+    padding-right: 16px;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .user .msg .say {
+    position: relative;
+    padding: 6px 10px;
+    border-radius: 5px;
+    line-height: 1.8;
+    margin-top: 2px;
+    display: inline-block;
+    text-align: left;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .user .msg .say img {
+    display: block;
+    cursor: crosshair;
+    margin: 4px 0;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .user .msg .say img.emoj {
+    display: inline-block;
+    cursor: default;
+    margin: 0;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .user .msg .say ol a {
+    color: #00a0d8;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .user .msg .say a.download {
+    display: block;
+    text-align: center;
+    min-width: 48px;
+    min-height: 76px;
+    padding-top: 56px;
+    position: relative;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .user .msg .say a.download::after {
+    content: " ";
+    background: url(../img/download.png) center top no-repeat;
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .user .msg .say a.download:hover::after {
+    opacity: 1;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line.left .user .msg .say {
+    background-color: #ffffff;
+    margin-left: 16px;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line.right .user .msg .say {
+    background-color:#008000;
+    margin-right: 16px;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line.right .user .msg i {
+    background-color: #f00;
+    color: #fff;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 16px;
+    font-style: normal;
+    margin-right: 2px;
+    margin-left: -20px;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line .user .msg .say:before {
+    position: absolute;
+    top: 10px;
+    width: 0;
+    height: 0;
+    content: "\00a0";
+    border-style: solid;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line.left .user .msg .say:before {
+    left: -12px;
+    border-width: 2px 12px 6px 0;
+    border-color: transparent #ffffff transparent transparent;
+}
+.xchat .xchat-center .xchat-box .xchat-body .line.right .user .msg .say:before {
+    right: -12px;
+    border-width: 2px 0 6px 12px;
+    border-color: transparent transparent transparent #008000;
+}
+
+.xchat .xchat-center .xchat-box .xchat-foot .xchat-editor-tool .xchat-face {
+    width: 290px;
+    top: -272px;
+    left: 8px;
+}
+
+.xchat .xchat-center .xchat-box .xchat-foot .xchat-editor-main {
+    display: flex;
+}
+.xchat .xchat-center .xchat-box .xchat-foot .xchat-editor-main .content {
+    flex-grow: 1;
+    height: 81px;
+}
+.xchat .xchat-center .xchat-box .xchat-foot .xchat-editor-main .btn {
+    width: 60px;
+    background-color: #00a0d8;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.xchat .xchat-center .xchat-notice {
+    position: absolute;
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+    color: #999;
+    left: 1px;
+    right: 1px;
+    bottom: 112px;
+    background-color: #fff2cd;
+    z-index: 9999;
+    overflow: hidden;
+}
+.xchat .xchat-center .xchat-notice a {
+    float: right;
+    text-decoration: none;
+    padding: 0 6px;
+}
+.xchat .xchat-center .xchat-notice .animate-leave-to {
+    transition: all .7s;
+    transform: translateY(20px);
+}
+
+.xchat .xchat-right {
+    width: 200px;
+    border-right: 1px #d5d5d5 solid;
+    border-bottom: 1px #d5d5d5 solid;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    color: #777;
+    position: relative;
+    overflow: hidden;
+}
+.xchat .xchat-right ol dt {
+    text-align: center;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    border-bottom: 1px #d5d5d5 solid;
+    background-color: #f6f6f6;
+    position: relative;
+    padding: 0 8px;
+    flex-shrink: 0;
+}
+.xchat .xchat-right ol dt.extra {
+    height: 50px;
+    padding: 8px;
+    border-bottom-style: dashed;
+    font-size: 12px;
+    text-align: left;
+    line-height: normal;
+}
+.xchat .xchat-right ol:first-child dt:first-child {
+    height: 36px;
+    line-height: 36px;
+}
+.xchat .xchat-right ol dt a {
+    position: absolute;
+    right: 8px;
+    color: #409EFF;
+}
+.xchat .xchat-right .kefu {
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.xchat .xchat-right .kefu dd {
+    overflow: auto;
+    flex-grow: 1;
+    height: 0;
+}
+.xchat .xchat-right .kefu dd::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+}
+.xchat .xchat-right .kefu dd li {
+    padding: 8px;
+    border-bottom: 1px #d5d5d5 dashed;
+}
+.xchat .xchat-right .kefu dd li:hover {
+    background-color: #fafafa;
+}
+.xchat .xchat-right .kefu dd div {
+    padding-top: 12px;
+    text-align: center;
+}
+.xchat .xchat-right .kefu dd img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+.xchat .xchat-right .kefu dd span {
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.xchat .xchat-right .kefu dd span i {
+    display: block;
+    color: #aaa;
+}
+.xchat .xchat-right .kefu dd button {
+    float: right;
+    margin-top: 10px;
+    border-radius: 3px;
+    padding: 2px 6px;
+}
+
+.xchat .xchat-right .visitor {
+    border-bottom: 1px #d5d5d5 solid;
+}
+.xchat .xchat-right .visitor dd {
+    padding: 6px 8px;
+}
+.xchat .xchat-right .visitor dd div {
+    padding: 2px 0;
+}
+.xchat .xchat-right .visitor label {
+    color: #555;
+    width: 50px;
+    text-align-last: justify;
+    text-align: justify;
+    margin-right: 12px;
+}
+.xchat .xchat-right .visitor a {
+    display: inline-block;
+    vertical-align: top;
+    width: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.xchat .xchat-right .fastreply {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 0;
+}
+.xchat .xchat-right .fastreply .xchat-search {
+    position: relative;
+}
+.xchat .xchat-right .fastreply .xchat-search input {
+    width: 100%;
+    padding-left: 50px;
+}
+.xchat .xchat-right .fastreply .xchat-search .result {
+    left: 0px;
+    right: 0px;
+    top: 32px;
+    position: absolute;
+    z-index: 5;
+    border: 1px #d5d5d5 solid;
+    border-top: none;
+    background-color: #fff;
+}
+.xchat .xchat-right .fastreply .xchat-search .result.on {
+    display: block;
+}
+.xchat .xchat-right .fastreply .xchat-search .result div {
+    padding: 8px;
+    border-top: 1px #d5d5d5 dashed;
+}
+.xchat .xchat-right .fastreply .xchat-search .result div:first-child {
+    border-top: none;
+}
+.xchat .xchat-right .fastreply .xchat-search .result div:hover {
+    background-color: #efefef;
+}
+.xchat .xchat-right .fastreply .xchat-search .select {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    z-index: 2;
+    background-color: #fff;
+    width: 40px;
+    text-align: center;
+}
+.xchat .xchat-right .fastreply .xchat-search .select .show {
+    border-right: 1px #d5d5d5 solid;
+    height: 30px;
+    line-height: 30px;
+    cursor: default;
+}
+.xchat .xchat-right .fastreply .xchat-search .select .show:hover {
+    background-color: #f5f5f5;
+}
+.xchat .xchat-right .fastreply .xchat-search .select .drop {
+    display: none;
+    border: 1px #d5d5d5 solid;
+    background-color: #fff;
+    margin-left: -1px;
+    line-height: 24px;
+}
+.xchat .xchat-right .fastreply .xchat-search .select .drop.on {
+    display: block;
+}
+.xchat .xchat-right .fastreply .xchat-search .select .drop div:hover {
+    background-color: #f5f5f5;
+}
+
+.xchat .xchat-right .fastreply dd {
+    overflow: auto;
+    flex-grow: 1;
+    height: 0;
+}
+.xchat .xchat-right .fastreply dd::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+}
+
+.xchat .xchat-right .fastreply ul li {
+    list-style-type: decimal;
+    margin-left: 22px;
+    position: relative;
+}
+.xchat .xchat-right .fastreply ul li div {
+    margin-left: -22px;
+    padding: 8px 8px 8px 22px;
+}
+.xchat .xchat-right .fastreply ul div:hover {
+    background-color: #f5f5f5;
+}
+.xchat .xchat-right .fastreply ul li.empty {
+    text-align: center;
+    margin-left: 0;
+    padding: 8px;
+    color: #aaa;
+}
+
+.xchat .xchat-chatlog {
+    width: 280px;
+    border: 1px #d5d5d5 solid;
+    border-left: none;
+    flex-shrink: 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+.xchat .xchat-chatlog .title {
+    background-color: #f6f6f6;
+    padding: 8px;
+    border-bottom: 1px #d5d5d5 solid;
+    font-size: 14px;
+}
+.xchat .xchat-chatlog .title a {
+    float: right;
+    text-decoration: none;
+}
+.xchat .xchat-chatlog .content {
+    flex-grow: 1;
+    overflow-y: auto;
+    position: relative;
+}
+.xchat .xchat-chatlog .content::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+}
+.xchat .xchat-chatlog .content::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+}
+.xchat .xchat-chatlog .content::-webkit-scrollbar-thumb:hover {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+}
+.xchat .xchat-chatlog .content ul {
+    margin: 8px;
+}
+.xchat .xchat-chatlog .content ul li {
+    padding: 4px 0;
+}
+.xchat .xchat-chatlog .content ul li span {
+    margin-right: 8px;
+    font-size: 14px;
+}
+.xchat .xchat-chatlog .content ul li.mine {
+    color: #f00;
+}
+.xchat .xchat-chatlog .content .xchat-page {
+    padding: 8px;
+}
+.xchat .xchat-chatlog .content .xchat-page a {
+    margin: 0 2px;
+    padding: 0 2px;
+    background-color: #eee;
+    min-width: 16px;
+}
+
+/* 快捷回复 */
+.xchat-pop .xchat-pop-body .replyAdd li {
+    margin: 4px 0;
+}
+.xchat-pop .xchat-pop-body .replyAdd label {
+    width: 40px;
+    text-align: right;
+}
+.xchat-pop .xchat-pop-body .replyAdd .group {
+    width: 81px;
+    margin-left: 4px;
+}
+.xchat-pop .xchat-pop-body .replyAdd .cancel {
+    margin-left: 12px;
+}
+
+.xchat-page a {
+    display: inline-block;
+    text-align: center;
+}
+.xchat-page a.page-curr {
+    color: #00a0d8;
+    cursor: default;
+    text-decoration: none;
+}
+.xchat-page a.page-curr:hover {
+    color: #00a0d8 !important;
+}
